@@ -16,10 +16,10 @@ Test Teardown   Test Teardown
 
 *** Test Cases ***
 
-Scenario: Webpack Dev Server
-  Go To  ${SERVER}
-  Wait until page contains  Hello World
-  Page Should Contain  Hello World
+Scenario: Dummy
+  Go To  https://kitconcept.com
+  Wait until page contains  kitconcept
+  Page Should Contain  kitconcept
 
 
 *** Keywords ***
