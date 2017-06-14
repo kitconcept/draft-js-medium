@@ -25,7 +25,14 @@ Scenario: Dummy
 *** Keywords ***
 
 Test Setup
-  Open Browser  ${SERVER}  ${BROWSER}
+  ${options}=  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
+  Call Method  ${options}  add_argument  disable-web-security
+  Call Method  ${options}  add_argument  allow-running-insecure-content
+  Call Method  ${options}  add_argument  disable-background-networking
+  Call Method  ${options}  add_argument  disable-translate
+  Call Method  ${options}  add_argument  no-default-browser-check
+  Call Method  ${options}  add_argument  disable-desktop-notifications
+  Create WebDriver  Chrome  chrome_options=${options}
   Set Window Size  1280  1024
 
 Test Teardown
