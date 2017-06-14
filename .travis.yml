@@ -19,7 +19,7 @@ install:
 - sudo pip install -r requirements.txt
 before_script:
   - (cd acceptance-testing && yarn install)
-  - (cd acceptance-testing && yarn start)
+  - (cd acceptance-testing && yarn start &)
   - sleep 3
 script:
 - pybot test.robot
