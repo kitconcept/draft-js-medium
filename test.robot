@@ -16,7 +16,7 @@ Test Teardown   Test Teardown
 
 *** Test Cases ***
 
-Scenario: Dummy
+Scenario: As a user I can see a rich text editing field
   Go To  ${SERVER}
   Wait until page contains  Draft.js Medium
   Page should contain  Draft.js Medium
