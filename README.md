@@ -1,4 +1,4 @@
-# Medium-like editor written in Draft js
+# Medium-like rich text editor build on Draft.js
 
 ## Installation
 
