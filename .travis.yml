@@ -15,12 +15,11 @@ before_script:
   - wget "http://chromedriver.storage.googleapis.com/2.30/chromedriver_linux64.zip"
   - unzip chromedriver_linux64.zip
   - sudo mv chromedriver /usr/local/bin
-install:
-- sudo pip install -r requirements.txt
-before_script:
   - (cd acceptance-testing && yarn install)
   - (cd acceptance-testing && yarn start &)
   - sleep 3
+install:
+  - sudo pip install -r requirements.txt
 script:
 - pybot test.robot
 notifications:
