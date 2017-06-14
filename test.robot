@@ -1,7 +1,7 @@
 *** Variables ***
 
 ${HOST}                 127.0.0.1
-${PORT}                 4300
+${PORT}                 3000
 ${BROWSER}              chrome
 ${SERVER}               http://${HOST}:${PORT}
 
@@ -18,7 +18,8 @@ Test Teardown   Test Teardown
 
 Scenario: Dummy
   Go To  ${SERVER}
-
+  Wait until page contains  Welcome to React
+  Page should contain  Welcome to React
 
 *** Keywords ***
 

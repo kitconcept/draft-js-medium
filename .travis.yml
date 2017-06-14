@@ -17,6 +17,9 @@ before_script:
   - sudo mv chromedriver /usr/local/bin
 install:
 - sudo pip install -r requirements.txt
+before_script:
+  - (cd acceptance-testing && yarn start)
+  - sleep 3
 script:
 - pybot test.robot
 notifications:
