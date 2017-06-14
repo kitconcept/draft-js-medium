@@ -1,4 +1,4 @@
-# Node
+# node
 node_modules
 coverage
 jsdoc
@@ -7,5 +7,14 @@ webpack-stats.json
 npm-debug.log
 dist
 
-# Other
+# py
+.py27
+
+# robot
+log.html
+output.xml
+report.html
+selenium-screenshot-*.png
+
+# other
 .DS_Store

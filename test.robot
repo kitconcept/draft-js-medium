@@ -18,8 +18,8 @@ Test Teardown   Test Teardown
 
 Scenario: Dummy
   Go To  ${SERVER}
-  Wait until page contains  Welcome to React
-  Page should contain  Welcome to React
+  Wait until page contains  Draft.js Medium
+  Page should contain  Draft.js Medium
 
 *** Keywords ***
 
