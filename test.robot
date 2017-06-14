@@ -1,7 +1,7 @@
 *** Variables ***
 
 ${HOST}                 127.0.0.1
-${PORT}                 7447
+${PORT}                 4300
 ${BROWSER}              chrome
 ${SERVER}               http://${HOST}:${PORT}
 
@@ -17,23 +17,17 @@ Test Teardown   Test Teardown
 *** Test Cases ***
 
 Scenario: Dummy
-  Go To  https://kitconcept.com
-  Wait until page contains  kitconcept
-  Page Should Contain  kitconcept
+  Go To  ${SERVER}
 
 
 *** Keywords ***
 
 Test Setup
   ${options}=  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
-  Call Method  ${options}  add_argument  disable-web-security
-  Call Method  ${options}  add_argument  allow-running-insecure-content
-  Call Method  ${options}  add_argument  disable-background-networking
-  Call Method  ${options}  add_argument  disable-translate
-  Call Method  ${options}  add_argument  no-default-browser-check
-  Call Method  ${options}  add_argument  disable-desktop-notifications
+  Call Method  ${options}  add_argument  headless
+  Call Method  ${options}  add_argument  disable-extensions
+  Call Method  ${options}  add_argument  start-maximized
   Create WebDriver  Chrome  chrome_options=${options}
-  Set Window Size  1280  1024
 
 Test Teardown
   Close Browser
