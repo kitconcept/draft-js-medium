@@ -18,6 +18,7 @@ before_script:
 install:
 - sudo pip install -r requirements.txt
 before_script:
+  - (cd acceptance-testing && yarn install)
   - (cd acceptance-testing && yarn start)
   - sleep 3
 script:
