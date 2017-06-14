@@ -11,5 +11,5 @@
 
 ## License
 
-The BSD 3-Clause License. Copyrights hold the Plone Foundation.
+The BSD 2-Clause License. Copyrights hold Kitconcept.
 See [LICENSE.md](LICENSE.md) for details.
