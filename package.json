@@ -1,0 +1,57 @@
+{
+  "name": "draft-js-medium",
+  "description": "Medium editor using Draft JS",
+  "maintainers": [
+    {
+      "name": "Rob Gietema",
+      "email": "rob.gietema@gmail.com"
+    }
+  ],
+  "licenses": [
+    {
+      "type": "BSD",
+      "url": "http://opensource.org/licenses/BSD-2-Clause"
+    }
+  ],
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kitconcept/draft-js-medium.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kitconcept/draft-js-medium/issues",
+    "email": "rob.gietema@gmail.com"
+  },
+  "homepage": "https://github.com/kitconcept/draft-js-medium",
+  "keywords": [
+    "draftjs",
+    "medium"
+  ],
+  "main": "src/main.js",
+  "jest": {
+    "testRegex": "(/__tests__/.*|\\.(test))\\.(js|jsx)$",
+    "transform": {
+      "^.+\\.js(x)?$": "babel-jest"
+    },
+    "collectCoverage": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 10,
+        "functions": 10,
+        "lines": 10,
+        "statements": 10
+      }
+    },
+    "globals": {
+      "__CLIENT__": true
+    }
+  },
+  "dependencies": {
+    "draft-js": "0.10.1",
+    "react": "15.6.0",
+    "react-dom": "15.6.0"
+  },
+  "engines": {
+    "node": "6.9.1"
+  }
+}
