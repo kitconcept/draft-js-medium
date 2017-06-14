@@ -1,7 +1,7 @@
 *** Variables ***
 
 ${HOST}                 127.0.0.1
-${PORT}                 7447
+${PORT}                 3000
 ${BROWSER}              chrome
 ${SERVER}               http://${HOST}:${PORT}
 
@@ -17,16 +17,18 @@ Test Teardown   Test Teardown
 *** Test Cases ***
 
 Scenario: Dummy
-  Go To  https://kitconcept.com
-  Wait until page contains  kitconcept
-  Page Should Contain  kitconcept
-
+  Go To  ${SERVER}
+  Wait until page contains  Welcome to React
+  Page should contain  Welcome to React
 
 *** Keywords ***
 
 Test Setup
-  Open Browser  ${SERVER}  ${BROWSER}
-  Set Window Size  1280  1024
+  ${options}=  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
+  Call Method  ${options}  add_argument  headless
+  Call Method  ${options}  add_argument  disable-extensions
+  Call Method  ${options}  add_argument  start-maximized
+  Create WebDriver  Chrome  chrome_options=${options}
 
 Test Teardown
   Close Browser
