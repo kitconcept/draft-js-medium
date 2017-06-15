@@ -47,9 +47,13 @@ export default class Editor extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      editorState: EditorState.createWithContent(
-        ContentState.createFromBlockArray(convertFromHTML(this.props.content)),
-      ),
+      editorState: this.props.content !== ''
+        ? EditorState.createWithContent(
+            ContentState.createFromBlockArray(
+              convertFromHTML(this.props.content),
+            ),
+          )
+        : EditorState.createEmpty(),
     };
     this.onChange = this.onChange.bind(this);
     this.onToggleInline = this.onToggleInline.bind(this);

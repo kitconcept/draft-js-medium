@@ -3,6 +3,11 @@
 exports[`Toolbar renders a toolbar component 1`] = `
 <div
   className="ui black pointing below label"
+  style={
+    Object {
+      "position": "absolute",
+    }
+  }
 >
   <div
     className="ui black buttons"
