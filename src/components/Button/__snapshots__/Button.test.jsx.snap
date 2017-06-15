@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders a button component 1`] = `
+<button
+  className="ui icon button"
+>
+  <i
+    aria-hidden="true"
+    className="bold icon"
+  />
+</button>
+`;

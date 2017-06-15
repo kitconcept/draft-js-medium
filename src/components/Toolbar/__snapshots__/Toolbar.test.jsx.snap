@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toolbar renders a toolbar component 1`] = `
+<div
+  className="ui black pointing below label"
+>
+  <div
+    className="ui black buttons"
+  >
+    <div />
+    <div />
+    <div />
+  </div>
+</div>
+`;
