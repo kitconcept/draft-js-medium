@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
+import { Editor as DraftEditor, EditorState } from 'draft-js';
 
 class Editor extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { editorState: EditorState.createEmpty() };
+    this.onChange = this.onChange.bind(this);
+  }
+
+  onChange(editorState) {
+    this.setState({ editorState });
+  }
+
   render() {
     return (
       <div>
@@ -17,7 +28,10 @@ class Editor extends Component {
             </button>
           </div>
         </div>
-        <h2>Editor</h2>
+        <DraftEditor
+          editorState={this.state.editorState}
+          onChange={this.onChange}
+        />
       </div>
     );
   }
