@@ -23,6 +23,7 @@ export default class Toolbar extends Component {
   static propTypes = {
     onToggleInline: PropTypes.func.isRequired,
     onToggleLink: PropTypes.func.isRequired,
+    selection: PropTypes.bool.isRequired,
   };
 
   /**
@@ -31,6 +32,9 @@ export default class Toolbar extends Component {
    * @returns {string} Markup of the container.
    */
   render() {
+    if (!this.props.selection) {
+      return <span />;
+    }
     return (
       <div className="ui black pointing below label">
         <div className="ui black buttons">

@@ -11,7 +11,7 @@ jest.mock('../StyleButton/StyleButton', () =>
 describe('Toolbar', () => {
   it('renders a toolbar component', () => {
     const component = renderer.create(
-      <Toolbar onToggleInline={() => {}} onToggleLink={() => {}} />,
+      <Toolbar onToggleInline={() => {}} onToggleLink={() => {}} selection />,
     );
     const json = component.toJSON();
     expect(json).toMatchSnapshot();

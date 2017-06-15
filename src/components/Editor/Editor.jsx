@@ -96,6 +96,7 @@ export default class Editor extends Component {
         <Toolbar
           onToggleInline={this.onToggleInline}
           onToggleLink={this.onToggleLink}
+          selection={!this.state.editorState.getSelection().isCollapsed()}
         />
         <DraftEditor
           editorState={this.state.editorState}
