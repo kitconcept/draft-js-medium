@@ -4,7 +4,7 @@
  */
 
 import React, { Component } from 'react';
-import { Editor as DraftEditor, EditorState } from 'draft-js';
+import { Editor as DraftEditor, EditorState, RichUtils } from 'draft-js';
 
 import Toolbar from '../Toolbar/Toolbar';
 
@@ -23,6 +23,8 @@ export default class Editor extends Component {
     super(props);
     this.state = { editorState: EditorState.createEmpty() };
     this.onChange = this.onChange.bind(this);
+    this.onToggleInline = this.onToggleInline.bind(this);
+    this.onToggleLink = this.onToggleLink.bind(this);
   }
 
   /**
@@ -36,6 +38,25 @@ export default class Editor extends Component {
   }
 
   /**
+   * Toggle inline style.
+   * @function onToggleInline
+   * @param {string} inlineStyle Inline style to toggle.
+   * @returns {undefined}
+   */
+  onToggleInline(inlineStyle) {
+    this.onChange(
+      RichUtils.toggleInlineStyle(this.state.editorState, inlineStyle),
+    );
+  }
+
+  /**
+   * Toggle link.
+   * @function onToggleLink
+   * @returns {undefined}
+   */
+  onToggleLink() {}
+
+  /**
    * Render method.
    * @function render
    * @returns {string} Markup of the container.
@@ -43,7 +64,10 @@ export default class Editor extends Component {
   render() {
     return (
       <div className="editor">
-        <Toolbar />
+        <Toolbar
+          onToggleInline={this.onToggleInline}
+          onToggleLink={this.onToggleLink}
+        />
         <DraftEditor
           editorState={this.state.editorState}
           onChange={this.onChange}

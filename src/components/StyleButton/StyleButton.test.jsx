@@ -1,17 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Toolbar from './Toolbar';
+import StyleButton from './StyleButton';
 
 jest.mock('../Button/Button', () => jest.fn(() => <div className="button" />));
-jest.mock('../StyleButton/StyleButton', () =>
-  jest.fn(() => <div className="style-button" />),
-);
 
-describe('Toolbar', () => {
-  it('renders a toolbar component', () => {
+describe('StyleButton', () => {
+  it('renders a style button component', () => {
     const component = renderer.create(
-      <Toolbar onToggleInline={() => {}} onToggleLink={() => {}} />,
+      <StyleButton icon="bold" style="BOLD" onToggle={() => {}} />,
     );
     const json = component.toJSON();
     expect(json).toMatchSnapshot();

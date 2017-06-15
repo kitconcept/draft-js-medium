@@ -19,6 +19,7 @@ export default class Button extends Component {
    */
   static propTypes = {
     icon: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
   };
 
   /**
@@ -28,7 +29,7 @@ export default class Button extends Component {
    */
   render() {
     return (
-      <button className="ui icon button">
+      <button className="ui icon button" onClick={this.props.onClick}>
         <i aria-hidden="true" className={`${this.props.icon} icon`} />
       </button>
     );
