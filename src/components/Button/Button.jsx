@@ -23,13 +23,34 @@ export default class Button extends Component {
   };
 
   /**
+   * Construcor
+   * @param {Object} props Properties.
+   * @constructs
+   */
+  constructor(props) {
+    super(props);
+    this.onClick = this.onClick.bind(this);
+  }
+
+  /**
+   * On click method.
+   * @function onClick
+   * @param {Object} event Event object.
+   * @returns {undefined}
+   */
+  onClick(event) {
+    event.preventDefault();
+    this.props.onClick();
+  }
+
+  /**
    * Render method.
    * @function render
    * @returns {string} Markup of the container.
    */
   render() {
     return (
-      <button className="ui icon button" onClick={this.props.onClick}>
+      <button className="ui icon button" onMouseDown={this.onClick}>
         <i aria-hidden="true" className={`${this.props.icon} icon`} />
       </button>
     );

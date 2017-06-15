@@ -3,7 +3,7 @@
 exports[`Button renders a button component 1`] = `
 <button
   className="ui icon button"
-  onClick={[Function]}
+  onMouseDown={[Function]}
 >
   <i
     aria-hidden="true"

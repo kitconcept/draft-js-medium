@@ -4,7 +4,14 @@
  */
 
 import React, { Component } from 'react';
-import { Editor as DraftEditor, EditorState, RichUtils } from 'draft-js';
+import {
+  convertFromHTML,
+  Editor as DraftEditor,
+  EditorState,
+  ContentState,
+  RichUtils,
+} from 'draft-js';
+import PropTypes from 'prop-types';
 
 import Toolbar from '../Toolbar/Toolbar';
 
@@ -15,13 +22,35 @@ import Toolbar from '../Toolbar/Toolbar';
  */
 export default class Editor extends Component {
   /**
+   * Property types.
+   * @property {Object} propTypes Property types.
+   * @static
+   */
+  static propTypes = {
+    content: PropTypes.string,
+  };
+
+  /**
+   * Default properties
+   * @property {Object} defaultProps Default properties.
+   * @static
+   */
+  static defaultProps = {
+    content: '',
+  };
+
+  /**
    * Construcor
    * @param {Object} props Properties.
    * @constructs
    */
   constructor(props) {
     super(props);
-    this.state = { editorState: EditorState.createEmpty() };
+    this.state = {
+      editorState: EditorState.createWithContent(
+        ContentState.createFromBlockArray(convertFromHTML(this.props.content)),
+      ),
+    };
     this.onChange = this.onChange.bind(this);
     this.onToggleInline = this.onToggleInline.bind(this);
     this.onToggleLink = this.onToggleLink.bind(this);
