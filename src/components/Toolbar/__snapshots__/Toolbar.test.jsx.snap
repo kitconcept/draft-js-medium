@@ -24,3 +24,5 @@ exports[`Toolbar renders a toolbar component 1`] = `
   </div>
 </div>
 `;
+
+exports[`Toolbar renders an empty span when no selection is specified 1`] = `<span />`;
