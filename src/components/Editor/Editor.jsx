@@ -28,6 +28,7 @@ export default class Editor extends Component {
    */
   static propTypes = {
     content: PropTypes.string,
+    onChange: PropTypes.func,
   };
 
   /**
@@ -37,6 +38,7 @@ export default class Editor extends Component {
    */
   static defaultProps = {
     content: '',
+    onChange: undefined,
   };
 
   /**
@@ -67,6 +69,9 @@ export default class Editor extends Component {
    * @returns {undefined}
    */
   onChange(editorState) {
+    if (this.props.onChange) {
+      this.props.onChange(editorState);
+    }
     this.setState({ editorState });
   }
 
