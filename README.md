@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/kitconcept/draft-js-medium.svg?branch=master)](https://travis-ci.org/kitconcept/draft-js-medium)
+
 # Medium-like rich text editor build on Draft.js
 
 ## Installation
