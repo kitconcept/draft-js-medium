@@ -66,13 +66,14 @@ export default class Editor extends Component {
    * On change method.
    * @function onChange
    * @param {Object} editorState New editor state.
+   * @param {function} callback Callback function.
    * @returns {undefined}
    */
-  onChange(editorState) {
+  onChange(editorState, callback) {
     if (this.props.onChange) {
       this.props.onChange(editorState);
     }
-    this.setState({ editorState });
+    this.setState({ editorState }, callback);
   }
 
   /**
@@ -90,9 +91,38 @@ export default class Editor extends Component {
   /**
    * Toggle link.
    * @function onToggleLink
+   * @param {string} link Link value
    * @returns {undefined}
    */
-  onToggleLink() {}
+  onToggleLink(link) {
+    let editorState = this.state.editorState;
+    const selection = editorState.getSelection();
+    const content = editorState.getCurrentContent();
+    let entityKey = null;
+    let newLink = link;
+    if (link !== '') {
+      if (link.indexOf('http') === -1) {
+        if (link.indexOf('@') >= 0) {
+          newLink = `mailto:${newLink}`;
+        } else {
+          newLink = `http://${newLink}`;
+        }
+      }
+      const contentWithEntity = content.createEntity('LINK', 'MUTABLE', {
+        url: newLink,
+      });
+      editorState = EditorState.push(
+        editorState,
+        contentWithEntity,
+        'create-entity',
+      );
+      entityKey = contentWithEntity.getLastCreatedEntityKey();
+    }
+    this.onChange(
+      RichUtils.toggleLink(editorState, selection, entityKey),
+      this.editorNode.focus(),
+    );
+  }
 
   /**
    * Render method.
@@ -108,6 +138,9 @@ export default class Editor extends Component {
           selection={!this.state.editorState.getSelection().isCollapsed()}
         />
         <DraftEditor
+          ref={node => {
+            this.editorNode = node;
+          }}
           editorState={this.state.editorState}
           onChange={this.onChange}
         />
