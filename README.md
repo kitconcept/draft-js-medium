@@ -5,13 +5,18 @@
 ## Installation
 
 ### Prerequisites
+
 * [Node.js==6.9.1](https://nodejs.org/)
 
 ### Install dependencies
 
-    $ yarn
+  $ yarn
+
+### Run development server
+
+  $ yarn watch
 
 ## License
 
-The BSD 2-Clause License. Copyrights hold Kitconcept.
+The BSD 2-Clause License. Copyrights hold kitconcept GmbH.
 See [LICENSE.md](LICENSE.md) for details.
