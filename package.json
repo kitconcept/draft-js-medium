@@ -60,18 +60,18 @@
   },
   "devDependencies": {
     "babel-cli": "6.24.1",
-    "babel-loader": "7.0.0",
+    "babel-loader": "7.1.1",
     "babel-plugin-transform-class-properties": "6.24.1",
     "babel-preset-es2015": "6.24.1",
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-0": "6.24.1",
-    "enzyme": "2.8.2",
+    "enzyme": "2.9.1",
     "jest": "20.0.4",
     "react": "15.6.1",
     "react-dom": "15.6.1",
     "react-test-renderer": "15.6.1",
-    "webpack": "2.6.1",
-    "webpack-dev-server": "2.4.5"
+    "webpack": "3.4.1",
+    "webpack-dev-server": "2.6.1"
   },
   "engines": {
     "node": "6.9.1"
